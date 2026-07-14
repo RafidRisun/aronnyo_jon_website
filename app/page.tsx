@@ -86,22 +86,28 @@ export default function Home() {
         {/*fit into screen */}
         <div
           id="second"
-          className="flex flex-col items-center justify-start w-full bg-green-400"
+          className="flex flex-col items-center justify-start w-full"
           style={{ height: height }}
         ></div>
         <div
           id="third"
-          className="flex flex-col items-center justify-start w-full bg-blue-400"
+          className="flex items-center justify-start w-full"
           style={{ height: height }}
-        ></div>
+        >
+          <div className="flex-1"/>
+          <div className="flex flex-1 items-start justify-start pt-32 h-full text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <div className="flex-1 h-full">
+            asdasd
+          </div>
+        </div>
         <div
           id="fourth"
-          className="flex flex-col items-center justify-start w-full bg-red-500"
+          className="flex flex-col items-center justify-start w-full"
           style={{ height: height }}
         ></div>
         <div
           id="fifth"
-          className="flex flex-col items-center justify-start w-full "
+          className="flex flex-col items-center justify-start w-full"
           style={{ height: height }}
         ></div>
       </div>
