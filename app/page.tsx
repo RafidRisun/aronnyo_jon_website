@@ -1,59 +1,111 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Home() {
   const [height, setHeight] = useState<number | 0>(0);
   const [screenWidth, setScreenWidth] = useState<number | 0>(0);
 
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isStuck, setIsStuck] = useState(false);
+
   useEffect(() => {
-    const handleResize = () => {
-      setHeight(window.innerHeight);
-      setScreenWidth(window.innerWidth);
-    };
-
+    const handleResize = () => setHeight(window.innerHeight);
     window.addEventListener("resize", handleResize);
-    handleResize(); // Set initial height
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <div className="relative min-w-full flex flex-col items-center justify-start" style={{ height: height * 5 }}>
-    <Image
-      src="/images/Background.png"
-      alt="Background Image"
-      width={screenWidth || 0}
-      height={height*5 || 0}
-      className="object-contain absolute top-0 left-0 z-[-1]"
-    />
-    <div id="start" className="flex flex-col items-center justify-start w-full" style={{ height: height - 110 }}>
-      <div className="flex items-center justify-between p-10 w-full">
-        <div className="flex gap-2 items-center">
-          <span className="text-4xl font-extrabold">Local</span>
-          <span className="text-4xl font-light">Orchestra</span>
-        </div>
-        <GiHamburgerMenu style={{height: 45, width: 45}}/>
-      </div>
-    </div>
-    <div className="flex items-center justify-center gap-10 p-8 w-full sticky top-0">
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsStuck(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center justify-start w-full">
+      {/* sentinel marks the scroll point where navbar should start sticking */}
+      <div
+        ref={sentinelRef}
+        style={{ position: "absolute", top: height - 90 }}
+      />
+
+      <div
+        className={
+          isStuck
+            ? "flex items-center justify-center gap-10 p-8 w-full fixed top-0 left-0 z-50"
+            : "flex items-center justify-center gap-10 p-8 w-full absolute z-50"
+        }
+        style={!isStuck ? { top: height - 90 } : undefined}
+      >
         <a href="#start" className="text-xl font-medium hover:underline">
           home
         </a>
-        <a href="/" className="text-xl font-medium hover:underline">
+        <a href="#second" className="text-xl font-medium hover:underline">
           about us
         </a>
-        <a href="/" className="text-xl font-medium hover:underline">
+        <a href="#third" className="text-xl font-medium hover:underline">
           works
         </a>
-        <a href="/" className="text-xl font-medium hover:underline">
+        <a href="#fourth" className="text-xl font-medium hover:underline">
           thoughts
         </a>
-        <a href="/" className="text-xl font-medium hover:underline">
+        <a href="#fifth" className="text-xl font-medium hover:underline">
           contact
         </a>
       </div>
-  </div>;
+      <div className="relative min-w-full flex flex-col items-center justify-start">
+        <Image
+          src="/images/Background.png"
+          alt="Background Image"
+          fill
+          className="object-cover absolute top-0 left-0 z-[-1]"
+        />
+        {/*fit into screen */}
+        <div
+          id="start"
+          className="flex flex-col items-center justify-start w-full"
+          style={{ height: height }}
+        >
+          <div className="flex items-center justify-between p-10 w-full">
+            <div className="flex gap-2 items-center">
+              <span className="text-4xl font-extrabold">Local</span>
+              <span className="text-4xl font-light">Orchestra</span>
+            </div>
+            <GiHamburgerMenu style={{ height: 45, width: 45 }} />
+          </div>
+        </div>
+        {/*fit into screen */}
+        <div
+          id="second"
+          className="flex flex-col items-center justify-start w-full bg-green-400"
+          style={{ height: height }}
+        ></div>
+        <div
+          id="third"
+          className="flex flex-col items-center justify-start w-full bg-blue-400"
+          style={{ height: height }}
+        ></div>
+        <div
+          id="fourth"
+          className="flex flex-col items-center justify-start w-full bg-red-500"
+          style={{ height: height }}
+        ></div>
+        <div
+          id="fifth"
+          className="flex flex-col items-center justify-start w-full "
+          style={{ height: height }}
+        ></div>
+      </div>
+      <div className="w-full bg-black" style={{ height: height }}></div>
+    </div>
+  );
 }
