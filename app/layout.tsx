@@ -21,11 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${lato.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="en" className={`${lato.variable} ${lato.className} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
