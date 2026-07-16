@@ -6,12 +6,16 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export default function Home() {
   const [height, setHeight] = useState<number | 0>(0);
   const [screenWidth, setScreenWidth] = useState<number | 0>(0);
+  const [hamburgerClicked, setHamburgerClicked] = useState(false);
 
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [isStuck, setIsStuck] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setHeight(window.innerHeight);
+    const handleResize = () => {
+      setHeight(window.innerHeight)
+      setScreenWidth(window.innerWidth);
+    };
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
@@ -80,7 +84,14 @@ export default function Home() {
               <span className="text-4xl font-extrabold">Local</span>
               <span className="text-4xl font-light">Orchestra</span>
             </div>
-            <GiHamburgerMenu style={{ height: 45, width: 45 }} />
+            <button
+              onClick={() => setHamburgerClicked(!hamburgerClicked)}
+              className={`cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out ${
+                hamburgerClicked ? "rotate-90" : "rotate-0"
+              }`}
+            >
+              <GiHamburgerMenu style={{ height: 45, width: 45 }} />
+            </button>
           </div>
         </div>
         {/*fit into screen */}
@@ -91,27 +102,67 @@ export default function Home() {
         ></div>
         <div
           id="third"
-          className="flex items-center justify-start w-full"
+          className="flex items-center justify-start w-full pt-32 gap-4 px-4"
           style={{ height: height }}
         >
-          <div className="flex-1"/>
-          <div className="flex flex-1 items-start justify-start pt-32 h-full text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-          <div className="flex-1 h-full">
-            asdasd
+          <div className="flex-1" />
+          <div className="flex flex-col flex-1 items-start justify-between h-full text-justify">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#start" className="text-xl font-medium hover:underline">
+          Learn More
+        </a>
+          </div>
+          <div className="flex-1 h-full relative">
+            <Image
+              src="/images/poster.jpg"
+              alt="Background Image"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
         <div
           id="fourth"
-          className="flex flex-col items-center justify-start w-full"
+          className="flex flex-col items-center justify-center w-full text-[128px] text-white"
           style={{ height: height }}
-        ></div>
+        >
+          লো কা ল অ র্কে স্ট্রা
+        </div>
         <div
           id="fifth"
-          className="flex flex-col items-center justify-start w-full"
+          className="flex flex-col items-center justify-end p-16 w-full"
           style={{ height: height }}
-        ></div>
+        >
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={300}
+            height={200}
+            className="object-contain"
+          />
+        </div>
+        <Image
+          src="/images/Red Grail.png"
+          alt="Red Grail"
+          width={screenWidth}
+          height={700}
+          className="object-cover absolute bottom-0 left-0 z-[-1]"
+        />
       </div>
-      <div className="w-full bg-black" style={{ height: height }}></div>
+      <div
+        className={`fixed top-28 right-0 w-2/5 h-4/5 bg-black/20 backdrop-blur-xl z-50 flex flex-col items-start justify-start p-6 text-white text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-0" : "translate-x-full"}`}
+      >
+        asd
+      </div>
+      {/* <div className="w-full bg-black" style={{ height: height }}></div> */}
+      {/* Changed to backdrop-blur-xl for a more noticeable effect */}
+      
     </div>
   );
 }
