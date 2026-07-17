@@ -73,7 +73,7 @@ export default function Welcome() {
           priority // Recommended for large background/hero images
         />
 
-        <div className="flex items-center justify-center w-full text-[clamp(1.5rem,10vw,20rem)] text-white font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="flex items-center justify-center w-full text-[clamp(1.5rem,10vw,20rem)] text-white font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           লো কা ল অ র্কে স্ট্রা
         </div>
 
