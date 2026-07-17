@@ -48,7 +48,7 @@ export default function Navbar() {
         <a href="#team" className="hover:underline">
           About Us
         </a>
-        <a href="#contact" className="hover:underline">
+        <a href="/works" className="hover:underline">
           Works
         </a>
         <a href="#contact" className="hover:underline">

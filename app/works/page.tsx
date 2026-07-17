@@ -1,24 +1,19 @@
 "use client";
-import {
-  setHamburgerClicked,
-} from "@/redux/hamburgerClickedSlice";
+import { setHamburgerClicked } from "@/redux/hamburgerClickedSlice";
 import { useDispatch } from "react-redux";
 
-export default function Home() {
+export default function Works() {
   const dispatch = useDispatch();
 
   function clickedAnywhere() {
     dispatch(setHamburgerClicked(false));
   }
-
   return (
     <div
       className="w-full h-screen bg-white pt-32 flex flex-col items-center justify-start text-[#104649]"
       onClick={clickedAnywhere}
     >
-      <div className="flex items-center justify-center w-full text-[clamp(1.5rem,10vw,20rem)] text-[#104649] font-light">
-          লো কা ল অ র্কে স্ট্রা
-        </div>
+      works
     </div>
   );
 }
