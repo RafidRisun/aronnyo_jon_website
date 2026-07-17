@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
+import Providers from "@/components/Providers";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -26,8 +29,10 @@ export default function RootLayout({
       className={`${lato.variable} ${lato.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

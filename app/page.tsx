@@ -6,15 +6,21 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { smoothScroll } from "../libs/lenis";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleHamburgerClicked } from "@/redux/hamburgerClickedSlice";
 
 export default function Home() {
   const router = useRouter();
   const [height, setHeight] = useState<number | 0>(0);
   const [screenWidth, setScreenWidth] = useState<number | 0>(0);
-  const [hamburgerClicked, setHamburgerClicked] = useState(false);
   const [navigating, setNavigating] = useState(false);
 
   const [continueVisible, setContinueVisible] = useState(false);
+
+  const hamburgerClicked = useSelector(
+    (state: any) => state.hamburgerClicked.value,
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,7 +50,7 @@ export default function Home() {
 
   function clickedAnywhere() {
     if (hamburgerClicked) {
-      setHamburgerClicked(false);
+      dispatch(toggleHamburgerClicked());
     } else {
       setNavigating(true);
       setTimeout(() => {

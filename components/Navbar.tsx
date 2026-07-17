@@ -1,9 +1,17 @@
 "use client";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setHamburgerClicked,
+  toggleHamburgerClicked,
+} from "@/redux/hamburgerClickedSlice";
 
 export default function Navbar() {
-  const [hamburgerClicked, setHamburgerClicked] = useState(false);
+  const hamburgerClicked = useSelector(
+    (state: any) => state.hamburgerClicked.value,
+  );
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -15,7 +23,7 @@ export default function Navbar() {
         <button
           onClick={(event) => {
             event.stopPropagation();
-            setHamburgerClicked(!hamburgerClicked);
+            dispatch(toggleHamburgerClicked());
           }}
           className={
             "z-50 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
