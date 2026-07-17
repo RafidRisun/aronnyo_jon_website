@@ -2,12 +2,10 @@
 import Lenis from "lenis";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { smoothScroll } from "../libs/lenis";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleHamburgerClicked } from "@/redux/hamburgerClickedSlice";
+import { setHamburgerClicked } from "@/redux/hamburgerClickedSlice";
 
 export default function Welcome() {
   const router = useRouter();
@@ -50,7 +48,7 @@ export default function Welcome() {
 
   function clickedAnywhere() {
     if (hamburgerClicked) {
-      dispatch(toggleHamburgerClicked());
+      dispatch(setHamburgerClicked(false));
     } else {
       setNavigating(true);
       setTimeout(() => {

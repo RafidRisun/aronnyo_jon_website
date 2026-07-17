@@ -21,7 +21,7 @@ export default function Navbar() {
       <div
         className={`flex items-center justify-between p-10 w-full fixed top-0 left-0 z-50 ${path === "/" ? "text-white" : "text-[#104649]"}`}
       >
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center pointer-events-none">
           <span className="text-4xl font-extrabold">Local</span>
           <span className="text-4xl font-light">Orchestra</span>
         </div>
