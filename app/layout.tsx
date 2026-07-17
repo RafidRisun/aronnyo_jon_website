@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -8,7 +9,6 @@ const lato = Lato({
   variable: "--font-lato",
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,8 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lato.variable} ${lato.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html
+      lang="en"
+      className={`${lato.variable} ${lato.className} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
