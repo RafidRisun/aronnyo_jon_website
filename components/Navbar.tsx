@@ -6,6 +6,7 @@ import {
   setHamburgerClicked,
   toggleHamburgerClicked,
 } from "@/redux/hamburgerClickedSlice";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const hamburgerClicked = useSelector(
@@ -13,9 +14,13 @@ export default function Navbar() {
   );
   const dispatch = useDispatch();
 
+  const path = usePathname();
+
   return (
     <>
-      <div className="flex items-center justify-between p-10 w-full fixed top-0 left-0 z-50">
+      <div
+        className={`flex items-center justify-between p-10 w-full fixed top-0 left-0 z-50 ${path === "/" ? "text-white" : "text-black"}`}
+      >
         <div className="flex gap-2 items-center">
           <span className="text-4xl font-extrabold">Local</span>
           <span className="text-4xl font-light">Orchestra</span>
@@ -35,9 +40,9 @@ export default function Navbar() {
 
       <div
         onClick={(event) => event.stopPropagation()}
-        className={`fixed top-32 right-5 z-50 flex flex-col items-end justify-start p-6 text-white font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-32 right-5 z-50 flex flex-col items-end justify-start p-6 font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-0" : "translate-x-full"} ${path === "/" ? "text-white" : "text-black"}`}
       >
-        <a href="/main" className="hover:underline">
+        <a href="/home" className="hover:underline">
           Home
         </a>
         <a href="#team" className="hover:underline">

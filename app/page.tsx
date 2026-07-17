@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHamburgerClicked } from "@/redux/hamburgerClickedSlice";
 
-export default function Home() {
+export default function Welcome() {
   const router = useRouter();
   const [height, setHeight] = useState<number | 0>(0);
   const [screenWidth, setScreenWidth] = useState<number | 0>(0);
@@ -54,7 +54,7 @@ export default function Home() {
     } else {
       setNavigating(true);
       setTimeout(() => {
-        router.push("/main");
+        router.push("/home");
       }, 500);
     }
   }
