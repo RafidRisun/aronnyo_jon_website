@@ -16,27 +16,27 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Rooftop Structure",
+    title: "Title 4",
     image: "/images/projects/4.jpg",
   },
   {
     id: 5,
-    title: "Urban Pavilion",
+    title: "Title 5",
     image: "/images/projects/5.jpg",
   },
   {
     id: 6,
-    title: "Eco-Lodge Community",
+    title: "Title 6",
     image: "/images/projects/6.jpg",
   },
   {
     id: 7,
-    title: "Modular Workspace",
+    title: "Title 7",
     image: "/images/projects/7.jpg",
   },
   {
     id: 8,
-    title: "Low-Cost Community Hall",
+    title: "Title 8",
     image: "/images/projects/8.jpg",
   },
 ];

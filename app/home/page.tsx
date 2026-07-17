@@ -22,7 +22,7 @@ export default function Home() {
       className="w-full bg-white py-32 flex flex-col gap-18 items-center justify-start text-[#104649]"
       onClick={clickedAnywhere}
     >
-      <div className="flex items-center justify-center w-full text-[clamp(1.5rem,10vw,20rem)] text-[#104649] font-light pointer-events-none">
+      <div className="flex items-center justify-center w-full text-[clamp(1.5rem,9vw,20rem)] text-[#104649] font-light pointer-events-none">
         লো কা ল অ র্কে স্ট্রা
       </div>
       {/* works */}

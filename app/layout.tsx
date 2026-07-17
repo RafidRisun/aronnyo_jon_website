@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import Providers from "@/components/Providers";
+import Footer from "@/components/Footer";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
