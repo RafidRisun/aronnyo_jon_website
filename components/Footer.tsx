@@ -9,7 +9,7 @@ export default function Footer() {
       {path !== "/" && (
         <div className="flex w-full items-end justify-between px-10 py-15 bg-white text-[#104649]">
           <div className="flex-1">
-            <div className="relative w-[200px] h-[200px]">
+            <div className="relative w-50 h-50">
               <Image
                 src="/images/logo blue.jpg"
                 alt="Logo"

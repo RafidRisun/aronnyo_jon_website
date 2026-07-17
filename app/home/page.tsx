@@ -22,7 +22,7 @@ export default function Home() {
       className="w-full bg-white py-32 flex flex-col gap-18 items-center justify-start text-[#104649]"
       onClick={clickedAnywhere}
     >
-      <div className="flex items-center justify-center w-full text-[clamp(1.5rem,9vw,20rem)] text-[#104649] font-light pointer-events-none">
+      <div className="flex items-center justify-center w-full text-[clamp(1.5rem,8vw,20rem)] text-[#104649] font-light pointer-events-none">
         লো কা ল অ র্কে স্ট্রা
       </div>
       {/* works */}
@@ -33,7 +33,7 @@ export default function Home() {
             href={`/projects/${project.id}`}
             className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
           >
-            <div className="relative w-[300px] h-[300px]">
+            <div className="relative w-75 h-75">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -52,6 +52,33 @@ export default function Home() {
         More Works
       </a>
       <div className="w-full border-dashed border-t-2 " />
+      {/* thoughts */}
+      <span className="text-2xl font-bold mt-8">Thoughts</span>
+      <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-4/5">
+        {projects.map((project) => (
+          <a
+            key={project.id}
+            href={`/projects/${project.id}`}
+            className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
+          >
+            <div className="relative w-75 h-75">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="text-lg font-bold mt-2">{project.title}</h3>
+          </a>
+        ))}
+      </div>
+      <a
+        href="/thoughts"
+        className="m-4 underline hover:scale-105 transition-transform duration-300 ease-in-out"
+      >
+        More Works
+      </a>
     </div>
   );
 }
