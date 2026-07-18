@@ -55,10 +55,10 @@ export default function Navbar() {
         <a href="/works" className="hover:underline">
           Works
         </a>
-        <a href="#contact" className="hover:underline">
+        <a href="/thoughts" className="hover:underline">
           Thoughts
         </a>
-        <a href="#contact" className="hover:underline">
+        <a href="/contact" className="hover:underline">
           Contact
         </a>
       </div>

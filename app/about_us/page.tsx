@@ -13,7 +13,7 @@ export default function AboutUs() {
     dispatch(setHamburgerClicked(false));
   }
 
-  const [personModalOpen, setPersonModalOpen] = useState(true);
+  const [personModalOpen, setPersonModalOpen] = useState(false);
 
   return (
     <div
@@ -127,10 +127,10 @@ export default function AboutUs() {
         <div className="flex flex-col items-center gap-15 p-5">
           <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
             {teamMembers.map((member) => (
-              <a
+              <button
                 key={member.id}
-                href={`/team/${member.id}`}
-                className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
+                onClick={() => setPersonModalOpen(true)}
+                className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
               >
                 <div className="relative w-75 h-75">
                   <Image
@@ -141,7 +141,7 @@ export default function AboutUs() {
                   />
                 </div>
                 <h3 className="text-lg font-bold mt-2">{member.name}</h3>
-              </a>
+              </button>
             ))}
           </div>
         </div>

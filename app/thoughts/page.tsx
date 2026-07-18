@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { IoMdClose } from "react-icons/io";
 
-export default function Works() {
+export default function Thoughts() {
   const dispatch = useDispatch();
   function clickedAnywhere() {
     dispatch(setHamburgerClicked(false));
@@ -22,7 +22,7 @@ export default function Works() {
     >
       <div className="flex items-start justify-between gap-5 flex-1 p-5">
         <div className="flex-1">
-          <span className="flex-1 font-light text-4xl px-15">Works</span>
+          <span className="flex-1 font-light text-4xl px-15">Thoughts</span>
         </div>
 
         <div className="flex-1"></div>

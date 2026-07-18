@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <div
-      className="w-full bg-white py-30 flex flex-col gap-18 items-center justify-start text-[#104649]"
+      className="w-full bg-white py-30 flex flex-col gap-18 items-center justify-start text-[#104649] text-justify"
       onClick={clickedAnywhere}
     >
       <div className="flex w-full gap-5 p-5">
@@ -127,10 +127,10 @@ export default function Home() {
       {/* works */}
       <div className="flex flex-col items-center gap-15">
         <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
-          {projects.map((project) => (
+          {projects.slice(0, 6).map((project) => (
             <a
               key={project.id}
-              href={`/projects/${project.id}`}
+              href={`/works/${project.id}`}
               className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               <div className="relative w-75 h-75">
@@ -154,7 +154,9 @@ export default function Home() {
       </div>
       <Divider />
       <div className="flex w-full h-screen p-5 gap-5">
-        <div className="flex-1 flex text-2xl px-5">abcd</div>
+        <div className="flex-1 flex items-start justify-start pl-15 font-light text-5xl">
+          Aneihx SJosfvl
+        </div>
         <div className="flex-1 flex flex-col gap-10">
           <div className="flex flex-col gap-5">
             <p>
@@ -184,7 +186,7 @@ export default function Home() {
       {/* Thoughts */}
       <div className="flex flex-col items-center gap-15">
         <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
-          {projects.map((project) => (
+          {projects.slice(0, 6).map((project) => (
             <a
               key={project.id}
               href={`/projects/${project.id}`}

@@ -29,16 +29,36 @@ export const projects = [
     title: "Title 6",
     image: "/images/projects/6.jpg",
   },
-  // {
-  //   id: 7,
-  //   title: "Title 7",
-  //   image: "/images/projects/7.jpg",
-  // },
-  // {
-  //   id: 8,
-  //   title: "Title 8",
-  //   image: "/images/projects/8.jpg",
-  // },
+  {
+    id: 7,
+    title: "Title 7",
+    image: "/images/projects/7.jpg",
+  },
+  {
+    id: 8,
+    title: "Title 8",
+    image: "/images/projects/8.jpg",
+  },
+  {
+    id: 9,
+    title: "Title 9",
+    image: "/images/projects/1.jpg",
+  },
+  {
+    id: 10,
+    title: "Title 10",
+    image: "/images/projects/2.jpg",
+  },
+  {
+    id: 11,
+    title: "Title 11",
+    image: "/images/projects/3.jpg",
+  },
+  {
+    id: 12,
+    title: "Title 12",
+    image: "/images/projects/4.jpg",
+  },
 ];
 
 export const slideImages = [
