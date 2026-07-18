@@ -19,7 +19,11 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`flex items-center justify-between p-10 w-full fixed top-0 left-0 z-50 ${path === "/" ? "text-white" : "text-[#104649]"}`}
+        className={`flex items-center justify-between p-10 w-full fixed top-0 left-0 z-50 ${path === "/" ? "text-white" : "text-[#104649] bg-white"}`}
+        onClick={(event) => {
+          event.stopPropagation();
+          dispatch(setHamburgerClicked(false));
+        }}
       >
         <div className="flex gap-2 items-center pointer-events-none">
           <span className="text-4xl font-extrabold">Local</span>
@@ -40,7 +44,7 @@ export default function Navbar() {
 
       <div
         onClick={(event) => event.stopPropagation()}
-        className={`fixed top-32 right-5 z-50 flex flex-col items-end justify-start p-6 font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-0" : "translate-x-full"} ${path === "/" ? "text-white" : "text-[#104649]"}`}
+        className={`fixed top-32 right-5 z-50 flex flex-col items-end justify-start p-6 font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-0" : "translate-x-full"} ${path === "/" ? "text-white" : "text-[#104649] bg-white pl-15 pb-15"}`}
       >
         <a href="/home" className="hover:underline">
           Home

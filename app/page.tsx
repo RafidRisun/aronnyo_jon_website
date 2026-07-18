@@ -31,10 +31,6 @@ export default function Welcome() {
   }, []);
 
   useEffect(() => {
-    smoothScroll();
-  }, []);
-
-  useEffect(() => {
     const calculatedHeight = (window.innerWidth * 9216) / 2732;
     setHeight(calculatedHeight);
   }, []);

@@ -40,3 +40,14 @@ export const projects = [
     image: "/images/projects/8.jpg",
   },
 ];
+
+export const slideImages = [
+  "/images/projects/1.jpg",
+  "/images/projects/2.jpg",
+  "/images/projects/3.jpg",
+  "/images/projects/4.jpg",
+  "/images/projects/5.jpg",
+  "/images/projects/6.jpg",
+  "/images/projects/7.jpg",
+  "/images/projects/8.jpg",
+];
