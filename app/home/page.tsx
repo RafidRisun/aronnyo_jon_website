@@ -10,6 +10,12 @@ export default function Home() {
   const [panCount, setPanCount] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  useEffect(() => {
+    setWindowHeight(window.innerHeight);
+  }, []);
+
   useEffect(() => {
     const panTimer = setInterval(() => {
       if (panCount === 0) {
@@ -40,18 +46,14 @@ export default function Home() {
 
   return (
     <div
-      className="w-full bg-white py-32 flex flex-col gap-18 items-center justify-start text-[#104649]"
+      className="w-full bg-white py-30 flex flex-col gap-18 items-center justify-start text-[#104649]"
       onClick={clickedAnywhere}
     >
       <div className="flex w-full gap-5 p-5">
-        <div className="relative flex flex-1 h-screen">
-          {/* <Image
-            src="/images/projects/1.jpg"
-            alt="lo ka lo"
-            fill
-            // className={`object-cover ${panCount === 0 ? "object-left" : panCount === 1 ? "object-center" : "object-right"} transition-all duration-5000 ease-in-out`}
-            className="object-cover"
-          /> */}
+        <div
+          className="relative flex flex-1"
+          style={{ height: windowHeight - 170 }}
+        >
           {slideImages.map((src, index) => (
             <Image
               key={src}
@@ -64,12 +66,14 @@ export default function Home() {
               priority={index === 0}
             />
           ))}
-          <span
-            className="absolute top-[-20] left-0 right-0 w-full text-[clamp(1.5rem,10vw,20rem)] text-white font-light pointer-events-none whitespace-nowrap overflow-hidden"
-            style={{ textAlign: "justify", textAlignLast: "justify" }}
-          >
-            লো কা ল অ র্কে স্ট্রা
-          </span>
+          <div className="absolute inset-0 flex flex-col justify-end pointer-events-none">
+            <span
+              className="w-full text-[clamp(1.5rem,10vw,20rem)] leading-none text-white font-light whitespace-nowrap overflow-hidden"
+              style={{ textAlign: "justify", textAlignLast: "justify" }}
+            >
+              লো কা ল অ র্কে স্ট্রা
+            </span>
+          </div>
         </div>
       </div>
 
@@ -92,7 +96,7 @@ export default function Home() {
                 src="/images/projects/2.jpg"
                 alt="project 1"
                 fill
-                className={`object-cover ${panCount === 0 ? "object-left" : panCount === 1 ? "object-center" : "object-right"} transition-all duration-5000 ease-in-out`}
+                className={`object-cover ${panCount === 0 ? "object-right" : panCount === 1 ? "object-left" : "object-center"} transition-all duration-5000 ease-in-out`}
               />
             </div>
           </div>
@@ -145,6 +149,63 @@ export default function Home() {
           className="m-4 underline hover:scale-105 transition-transform duration-300 ease-in-out"
         >
           More Works
+        </a>
+      </div>
+      <div className="w-full border-dashed border-t-2 " />
+      <div className="flex w-full h-screen p-5 gap-5">
+        <div className="flex-1 flex text-2xl px-5">abcd</div>
+        <div className="flex-1 flex flex-col gap-10">
+          <div className="flex flex-col gap-5">
+            <p>
+              WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </p>
+            <p>
+              WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </p>
+          </div>
+          <div className="flex-1 bg-[url('/images/projects/3.jpg')] bg-cover bg-center" />
+        </div>
+      </div>
+      {/* Thoughts */}
+      <div className="flex flex-col items-center gap-15">
+        <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
+          {projects.map((project) => (
+            <a
+              key={project.id}
+              href={`/projects/${project.id}`}
+              className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              <div className="relative w-75 h-75">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="text-lg font-bold mt-2">{project.title}</h3>
+            </a>
+          ))}
+        </div>
+        <a
+          href="/works"
+          className="m-4 underline hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
+          Explore More Thoughts
         </a>
       </div>
       <div className="w-full border-dashed border-t-2 " />

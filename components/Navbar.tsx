@@ -49,7 +49,7 @@ export default function Navbar() {
         <a href="/home" className="hover:underline">
           Home
         </a>
-        <a href="#team" className="hover:underline">
+        <a href="/about_us" className="hover:underline">
           About Us
         </a>
         <a href="/works" className="hover:underline">
