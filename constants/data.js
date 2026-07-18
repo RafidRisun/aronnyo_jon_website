@@ -29,16 +29,16 @@ export const projects = [
     title: "Title 6",
     image: "/images/projects/6.jpg",
   },
-  {
-    id: 7,
-    title: "Title 7",
-    image: "/images/projects/7.jpg",
-  },
-  {
-    id: 8,
-    title: "Title 8",
-    image: "/images/projects/8.jpg",
-  },
+  // {
+  //   id: 7,
+  //   title: "Title 7",
+  //   image: "/images/projects/7.jpg",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Title 8",
+  //   image: "/images/projects/8.jpg",
+  // },
 ];
 
 export const slideImages = [
@@ -49,5 +49,4 @@ export const slideImages = [
   "/images/projects/5.jpg",
   "/images/projects/6.jpg",
   "/images/projects/7.jpg",
-  "/images/projects/8.jpg",
 ];
