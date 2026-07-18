@@ -74,26 +74,30 @@ export const slideImages = [
 export const teamMembers = [
   {
     id: 1,
-    name: "John Doe",
-    role: "CEO",
+    name: "Chengis Khan",
     image: "/images/aboutus/cat.jpg",
+    position: "CEO",
+    company: "Company A",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    role: "CTO",
+    name: "Chengis Khan",
+    position: "CTO",
+    company: "Company A",
     image: "/images/aboutus/cat.jpg",
   },
   {
     id: 3,
-    name: "Mike Johnson",
-    role: "CFO",
+    name: "Chengis Khan",
+    position: "CFO",
+    company: "Company A",
     image: "/images/aboutus/cat.jpg",
   },
   {
     id: 4,
-    name: "Emily Davis",
-    role: "COO",
+    name: "Chengis Khan",
+    position: "COO",
+    company: "Company A",
     image: "/images/aboutus/cat.jpg",
   },
 ];

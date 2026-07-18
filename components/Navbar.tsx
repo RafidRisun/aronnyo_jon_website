@@ -25,10 +25,10 @@ export default function Navbar() {
           dispatch(setHamburgerClicked(false));
         }}
       >
-        <div className="flex gap-2 items-center pointer-events-none">
+        <a className="flex gap-2 items-center" href="/home">
           <span className="text-4xl font-extrabold">Local</span>
           <span className="text-4xl font-light">Orchestra</span>
-        </div>
+        </a>
         <button
           onClick={(event) => {
             event.stopPropagation();

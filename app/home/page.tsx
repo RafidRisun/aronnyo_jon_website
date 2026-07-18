@@ -53,7 +53,7 @@ export default function Home() {
       <div className="flex w-full gap-5 p-5">
         <div
           className="relative flex flex-1"
-          style={{ height: windowHeight - 170 }}
+          style={{ height: windowHeight - 160 }}
         >
           {slideImages.map((src, index) => (
             <Image
@@ -102,8 +102,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-1 flex gap-5">
-          <div className="flex-1 px-15">
+        <div className="flex-1 flex flex-col gap-5">
+          <div className="">
             WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -112,7 +112,7 @@ export default function Home() {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
             officia deserunt mollit anim id est laborum.
           </div>
-          <div className="flex-1 px-15">
+          <div className="flex-1">
             WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="flex-1 flex justify-center">
             <span>© 2026 Local Orchestra. All rights reserved.</span>
           </div>
-          <div className="flex-1 flex flex-col items-end justify-end gap-2">
+          <div className="flex-1 flex flex-col items-end justify-end text-end gap-2">
             <span className="font-bold text-2xl">Contact Us:</span>
             <a
               href="mailto:info@localorchestra.com"
