@@ -50,3 +50,30 @@ export const slideImages = [
   "/images/projects/6.jpg",
   "/images/projects/7.jpg",
 ];
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: "John Doe",
+    role: "CEO",
+    image: "/images/aboutus/cat.jpg",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    role: "CTO",
+    image: "/images/aboutus/cat.jpg",
+  },
+  {
+    id: 3,
+    name: "Mike Johnson",
+    role: "CFO",
+    image: "/images/aboutus/cat.jpg",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    role: "COO",
+    image: "/images/aboutus/cat.jpg",
+  },
+];

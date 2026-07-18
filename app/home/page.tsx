@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { projects, slideImages } from "@/constants/data";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Divider from "@/components/Divider";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -102,7 +103,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 flex gap-5">
-          <div className="flex-1 p-15">
+          <div className="flex-1 px-15">
             WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -111,7 +112,7 @@ export default function Home() {
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
             officia deserunt mollit anim id est laborum.
           </div>
-          <div className="flex-1 p-15">
+          <div className="flex-1 px-15">
             WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -151,7 +152,7 @@ export default function Home() {
           More Works
         </a>
       </div>
-      <div className="w-full border-dashed border-t-2 " />
+      <Divider />
       <div className="flex w-full h-screen p-5 gap-5">
         <div className="flex-1 flex text-2xl px-5">abcd</div>
         <div className="flex-1 flex flex-col gap-10">
@@ -208,7 +209,7 @@ export default function Home() {
           Explore More Thoughts
         </a>
       </div>
-      <div className="w-full border-dashed border-t-2 " />
+      <Divider />
     </div>
   );
 }
