@@ -5,6 +5,7 @@ import { projects, slideImages } from "@/constants/data";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Divider from "@/components/Divider";
+import { smoothScroll } from "@/libs/lenis";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -50,10 +51,9 @@ export default function Home() {
       className="w-full bg-white py-30 flex flex-col gap-18 items-center justify-start text-[#104649] text-justify"
       onClick={clickedAnywhere}
     >
-      <div className="flex w-full gap-5 p-5">
+      <div className="w-full gap-5">
         <div
-          className="relative flex flex-1"
-          style={{ height: windowHeight - 160 }}
+          className="relative flex w-full h-[clamp(20rem,60vh,100rem)]"
         >
           {slideImages.map((src, index) => (
             <Image
@@ -67,9 +67,9 @@ export default function Home() {
               priority={index === 0}
             />
           ))}
-          <div className="absolute inset-0 flex flex-col justify-end pointer-events-none">
+          <div className="absolute inset-0 flex flex-col items-center justify-end pointer-events-none">
             <span
-              className="w-full text-[clamp(1.5rem,10vw,20rem)] leading-none text-white font-light whitespace-nowrap overflow-hidden"
+              className="w-full px-32 text-[clamp(1.5rem,10vw,20rem)] leading-none text-white font-light whitespace-nowrap overflow-hidden"
               style={{ textAlign: "justify", textAlignLast: "justify" }}
             >
               লো কা ল অ র্কে স্ট্রা
@@ -80,7 +80,7 @@ export default function Home() {
 
       <div className="flex w-full h-screen p-5 gap-5">
         <div className="flex-1 flex flex-col gap-5">
-          <div className="flex h-1/3 items-start justify-start pl-15 font-light text-5xl">
+          <div className="flex h-1/3 items-start justify-start pl-28 font-light text-5xl">
             Absdibe Soraswg
           </div>
           <div className="flex-1 flex gap-5">
@@ -102,7 +102,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-1 flex flex-col gap-5">
+        <div className="flex-1 flex flex-col gap-5 px-28">
           <div className="">
             WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -131,7 +131,7 @@ export default function Home() {
             <a
               key={project.id}
               href={`/works/${project.id}`}
-              className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
+              className="m-2 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               <div className="relative w-75 h-75">
                 <Image
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="w-full h-60 bg-[url('/images/projects/2.jpg')] bg-cover bg-center" />
         </div>
         <div className="flex-1 flex flex-col justify-between gap-10">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 px-28">
             <p>
               WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
