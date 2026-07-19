@@ -55,7 +55,7 @@ export default function Thoughts() {
           {projects.map((project) => (
             <a
               key={project.id}
-              href={`/works/${project.id}`}
+              href={`/thoughts/${project.id}`}
               className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
             >
               <div className="relative w-75 h-75">

@@ -154,10 +154,11 @@ export default function Home() {
       </div>
       <Divider />
       <div className="flex w-full h-screen p-5 gap-5">
-        <div className="flex-1 flex items-start justify-start pl-15 font-light text-5xl">
-          Aneihx SJosfvl
+        <div className="flex-1 flex flex-col items-start justify-between font-light text-5xl">
+          <span className="pl-15">Aneihx SJosfvlasd</span>
+          <div className="w-full h-60 bg-[url('/images/projects/2.jpg')] bg-cover bg-center" />
         </div>
-        <div className="flex-1 flex flex-col gap-10">
+        <div className="flex-1 flex flex-col justify-between gap-10">
           <div className="flex flex-col gap-5">
             <p>
               WHAT WE DO Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -180,7 +181,7 @@ export default function Home() {
               laborum.
             </p>
           </div>
-          <div className="flex-1 bg-[url('/images/projects/3.jpg')] bg-cover bg-center" />
+          <div className="h-60 w-full bg-[url('/images/projects/3.jpg')] bg-cover bg-center" />
         </div>
       </div>
       {/* Thoughts */}

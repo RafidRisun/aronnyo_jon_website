@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { IoMdShare } from "react-icons/io";
 
-export default function WorkDetail() {
+export default function ThoughtDetail() {
   const [screenHeight, setScreenHeight] = useState(0);
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(1);
