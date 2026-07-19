@@ -44,7 +44,7 @@ export default function Navbar() {
 
       <div
         onClick={(event) => event.stopPropagation()}
-        className={`fixed top-30 right-5 z-50 flex flex-col items-end justify-start p-6 font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-5" : "translate-x-60"} ${path === "/" ? "text-white" : "text-[#104649] bg-white pl-15 pb-15"}`}
+        className={`fixed top-30 right-5 z-50 flex flex-col h-full items-end justify-start p-6 font-light text-2xl gap-8 transition-all duration-300 ease-in-out ${hamburgerClicked ? "translate-x-5" : "translate-x-60"} ${path === "/" ? "text-white" : "text-[#104649] bg-white pl-15 pb-15"}`}
       >
         <a href="/home" className="hover:underline">
           Home

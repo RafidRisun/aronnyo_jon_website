@@ -131,7 +131,7 @@ export default function Home() {
             <a
               key={project.id}
               href={`/works/${project.id}`}
-              className="m-2 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
+              className="m-2 mb-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               <div className="relative w-75 h-75">
                 <Image
