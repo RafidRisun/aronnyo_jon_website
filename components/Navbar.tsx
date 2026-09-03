@@ -72,10 +72,10 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 flex w-full items-center justify-between px-5 py-5 transition-colors duration-200 sm:px-10 sm:py-8 ${navbarColor}`}
         onClick={closeMenu}
       >
-        <div className="pointer-events-none flex items-center gap-1 sm:gap-2">
+        <a href="/" className="flex items-center gap-1 sm:gap-2">
           <span className="text-2xl font-extrabold sm:text-4xl">Local</span>
           <span className="text-2xl font-light sm:text-4xl">Orchestra</span>
-        </div>
+        </a>
 
         <button
           type="button"
