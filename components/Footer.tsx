@@ -1,52 +1,95 @@
-"use client";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+
+const FOOTER_CONTENT_WIDTH = "w-full max-w-[84rem]";
 
 export default function Footer() {
-  const path = usePathname();
   return (
-    <>
-      {path !== "/" && (
-        <div className="flex w-full items-end justify-between px-10 py-15 bg-white text-[#104649]">
-          <div className="flex-1">
-            <div className="relative w-50 h-50">
-              <Image
-                src="/images/logo blue.jpg"
-                alt="Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <span>© 2026 Local Orchestra. All rights reserved.</span>
-          </div>
-          <div className="flex-1 flex flex-col items-end justify-end gap-2">
-            <span className="font-bold text-2xl">Contact Us:</span>
-            <a
-              href="mailto:info@localorchestra.com"
-              className="hover:underline"
-              target="_blank"
-            >
-              info@localorchestra.com
-            </a>
-            <a
-              href="tel:+880123456789"
-              className="hover:underline"
-              target="_blank"
-            >
-              +880 123 456 789
-            </a>
-            <a
-              href="https://maps.app.goo.gl/XXKn9BitP53spAht6"
-              className="hover:underline"
-              target="_blank"
-            >
-              Aronnyojon Construction Studio, Rajashon, Savar, Dhaka, Bangladesh
-            </a>
-          </div>
+    <footer
+      id="footer"
+      data-navbar-tone="non-white"
+      className="relative flex min-h-svh w-full flex-col items-center justify-between overflow-hidden bg-[#829DA4] px-6 pb-8 pt-28 text-white sm:px-10 sm:pb-10 sm:pt-32 lg:px-[clamp(3rem,6vw,6rem)]"
+    >
+      {/* Keep both marks in this grid so they scale evenly on small screens. */}
+      <div
+        className={`grid flex-1 grid-cols-2 items-center justify-items-center gap-5 py-8 sm:gap-12 lg:gap-24 ${FOOTER_CONTENT_WIDTH}`}
+      >
+        <div className="flex min-w-0 flex-col items-center justify-center">
+          <Image
+            src="/images/Brochure/Detour.jpg"
+            alt="Detour"
+            width={300}
+            height={300}
+            sizes="(max-width: 640px) 42vw, 16rem"
+            className="h-auto w-full max-w-48 object-contain sm:max-w-64"
+          />
+          <p className="mt-3 text-center text-sm font-extralight text-black sm:text-base">
+            listen | design | build
+          </p>
         </div>
-      )}
-    </>
+
+        <div className="flex min-w-0 flex-col items-center justify-center">
+          <Image
+            src="/images/Brochure/aronnyojon.jpg"
+            alt="Aronnyo Jon"
+            width={300}
+            height={300}
+            sizes="(max-width: 640px) 42vw, 16rem"
+            className="h-auto w-full max-w-48 object-contain sm:max-w-64"
+          />
+          <p className="mt-3 text-center text-sm font-extralight text-black sm:text-base">
+            for ethical construction
+          </p>
+        </div>
+      </div>
+
+      {/* On mobile these blocks flow vertically; desktop keeps the 3-column footer. */}
+      <div
+        className={`grid grid-cols-1 gap-7 text-center text-sm font-extralight leading-relaxed sm:text-base lg:grid-cols-3 lg:items-end lg:gap-10 lg:text-left ${FOOTER_CONTENT_WIDTH}`}
+      >
+        <address className="not-italic">
+          <span className="font-bold">Address:</span>
+          <br />
+          <a
+            href="https://maps.app.goo.gl/4VhfTycrqGmQJvrJA"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block text-white underline-offset-4 hover:underline"
+          >
+            68 Elephant Road, Dhaka 1205, Bangladesh
+          </a>
+          <br />
+          <a
+            href="https://maps.app.goo.gl/8eRyryvoYM6CXnVm8"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block text-white underline-offset-4 hover:underline"
+          >
+            C-43/2 Mojidpur, Savar, Dhaka 1340, Bangladesh
+          </a>
+        </address>
+
+        <p className="order-3 text-center lg:order-none">
+          © 2026 Aronnyo Jon. All rights reserved.
+        </p>
+
+        <div className="lg:text-right">
+          <span className="font-bold">E-mail:</span>
+          <br />
+          <a
+            href="mailto:local.orchestra@gmail.com"
+            className="inline-block text-white underline-offset-4 hover:underline"
+          >
+            local.orchestra@gmail.com
+          </a>
+          <br />
+          <a
+            href="mailto:aronnyojon@gmail.com"
+            className="inline-block text-white underline-offset-4 hover:underline"
+          >
+            aronnyojon@gmail.com
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }

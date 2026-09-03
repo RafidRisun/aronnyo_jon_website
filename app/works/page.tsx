@@ -1,77 +1,17 @@
-"use client";
-import Divider from "@/components/Divider";
-import { projects, teamMembers } from "@/constants/data";
-import { setHamburgerClicked } from "@/redux/hamburgerClickedSlice";
-import Image from "next/image";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { IoMdClose } from "react-icons/io";
-
 export default function Works() {
-  const dispatch = useDispatch();
-  function clickedAnywhere() {
-    dispatch(setHamburgerClicked(false));
-  }
-
-  const [personModalOpen, setPersonModalOpen] = useState(false);
-
   return (
-    <div
-      className="flex flex-col py-32 w-full bg-white gap-15 text-[#104649] text-justify"
-      onClick={clickedAnywhere}
+    <main
+      className="flex min-h-svh w-full items-center justify-center bg-white px-6 py-28 text-dark-teal sm:px-10"
+      data-navbar-tone="white"
     >
-      <div className="flex items-start justify-between gap-5 flex-1 p-5">
-        <div className="flex-1">
-          <span className="flex-1 font-light text-4xl px-15">Works</span>
-        </div>
-
-        <div className="flex-1"></div>
-        <div className="flex-1">
-          <p>
-            WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea . Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-        <div className="flex-1">
-          <p>
-            WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea . Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
+      <div className="w-full max-w-[84rem] text-center">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] sm:text-base">
+          Works
+        </p>
+        <h1 className="mt-5 text-[clamp(2.5rem,8vw,7rem)] font-light leading-none tracking-[-0.045em]">
+          Page under construction
+        </h1>
       </div>
-      {/* Team Members */}
-      <div className="flex flex-col items-center gap-15 p-5">
-        <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
-          {projects.map((project) => (
-            <a
-              key={project.id}
-              href={`/works/${project.id}`}
-              className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
-            >
-              <div className="relative w-75 h-75">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold mt-2">{project.title}</h3>
-            </a>
-          ))}
-        </div>
-      </div>
-      <Divider />
-    </div>
+    </main>
   );
 }

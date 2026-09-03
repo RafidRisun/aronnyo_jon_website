@@ -5,12 +5,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-const TEMPLATE_BACKGROUND = "/images/projects/1.jpg";
-
 // REUSABLE SECTION BASE
 // Add this constant to each new section to keep it exactly one screen tall.
 const FULL_SCREEN_SECTION =
-  "relative flex h-svh min-h-svh w-full overflow-hidden bg-white px-[clamp(1.5rem,6vw,6rem)] py-[clamp(5.5rem,10vw,9rem)]";
+  "relative flex min-h-svh w-full overflow-hidden bg-white px-[clamp(1.5rem,6vw,6rem)] py-[clamp(5.5rem,10vw,9rem)]";
 
 const FLEX_SECTION =
   "relative flex w-full min-h-[100vh] items-start justify-center overflow-hidden bg-white px-[clamp(1.5rem,6vw,6rem)] py-[clamp(5.5rem,10vw,9rem)]";
@@ -54,7 +52,7 @@ export default function Welcome() {
         aria-label="Intro"
         data-navbar-tone="white"
       >
-        <div className={`relative h-[65%] ${SECTION_CONTENT_WIDTH}`}>
+        <div className={`relative h-[65svh] w-full ${SECTION_CONTENT_WIDTH}`}>
           <Image
             src="/images/Brochure/0.jpg"
             alt="Local Orchestra online brochure cover"
@@ -65,7 +63,7 @@ export default function Welcome() {
             className={`object-contain object-center`}
           />
         </div>
-        <span className="absolute bottom-15 font-light">
+        <span className="absolute bottom-8 px-6 text-center font-light sm:bottom-15">
           for our living environment
         </span>
       </section>
@@ -207,9 +205,9 @@ export default function Welcome() {
           className="z-0 object-cover object-center"
         />
         <div
-          className={`z-20 flex gap-16 items-start justify-start ${SECTION_CONTENT_WIDTH}`}
+          className={`z-20 flex flex-col items-start justify-start gap-12 lg:flex-row lg:gap-16 ${SECTION_CONTENT_WIDTH}`}
         >
-          <div className="flex flex-col gap-2 text-end items-end justify-start">
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-2 text-left lg:items-end lg:text-end">
             <h2 className={`${HEADING} font-normal`}>
               <span className="font-bold">{`Collective `}</span> Efforts <br />{" "}
               for
@@ -230,8 +228,8 @@ export default function Welcome() {
               behind.
             </p>
           </div>
-          <div className="flex flex-col gap-2 items-start justify-start">
-            <div className="h-38" />
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-2">
+            <div className="hidden h-38 lg:block" />
             <div className="flex flex-col gap-2 items-start justify-start text-dark-teal">
               <h2 className={`${HEADING} font-normal`}>
                 Environmental<span className="font-bold">{` Health`}</span>{" "}
@@ -293,18 +291,16 @@ export default function Welcome() {
         data-navbar-tone="white"
       >
         <div
-          className={`z-20 flex gap-18 items-center justify-center black ${SECTION_CONTENT_WIDTH}`}
+          className={`z-20 flex flex-col items-center justify-center gap-10 lg:flex-row lg:gap-18 ${SECTION_CONTENT_WIDTH}`}
         >
           <Image
             src="/images/Brochure/37.jpg"
             alt="Architecture project interior"
             width={600}
             height={600}
-            className="object-contain object-center"
+            className="h-auto w-full max-w-[32rem] object-contain object-center lg:w-[44%]"
           />
-          <div
-            className={`z-20 flex flex-col gap-2 items-start justify-start ${SECTION_CONTENT_WIDTH}`}
-          >
+          <div className="z-20 flex min-w-0 flex-1 flex-col items-start justify-start gap-2">
             <h2 className={`${HEADING}`}>
               Education, <span className="font-bold">{` Knowledge`}</span>{" "}
               <br /> & Environmental Practice
@@ -365,7 +361,7 @@ export default function Welcome() {
         data-navbar-tone="white"
       >
         <div
-          className={`z-20 flex flex-col gap-18 items-center justify-center black ${SECTION_CONTENT_WIDTH}`}
+          className={`z-20 flex flex-col items-center justify-center gap-10 sm:gap-14 lg:gap-18 ${SECTION_CONTENT_WIDTH}`}
         >
           <div className="w-full">
             <Image
@@ -377,9 +373,9 @@ export default function Welcome() {
             />
           </div>
           <div
-            className={`z-20 flex gap-18 items-start justify-start ${SECTION_CONTENT_WIDTH}`}
+            className={`z-20 flex flex-col items-start justify-start gap-8 lg:flex-row lg:gap-18 ${SECTION_CONTENT_WIDTH}`}
           >
-            <h2 className={`${HEADING} text-end`}>
+            <h2 className={`${HEADING} text-left lg:text-end`}>
               Material <br /> <span className="font-bold">{`Research`}</span>{" "}
               <br /> Training <br /> &{" "}
               <span className="font-bold">{` Livelihood`}</span>
@@ -449,19 +445,19 @@ export default function Welcome() {
         data-navbar-tone="white"
       >
         <div
-          className={`z-20 flex flex-col gap-16 items-start justify-start ${SECTION_CONTENT_WIDTH}`}
+          className={`z-20 flex flex-col items-start justify-start gap-10 sm:gap-16 ${SECTION_CONTENT_WIDTH}`}
         >
-          <div className="flex gap-18 text-end items-end justify-start">
-            <div className="w-full">
+          <div className="flex w-full flex-col items-start justify-start gap-10 text-left lg:flex-row lg:items-end lg:gap-18 lg:text-end">
+            <div className="w-3/5">
               <Image
                 src="/images/Brochure/49.jpg"
                 alt="Architecture project interior"
                 width={1200}
                 height={1200}
-                className="h-auto w-3/5 object-contain object-center"
+                className="h-auto w-full max-w-[32rem] object-contain object-center lg:w-3/5"
               />
             </div>
-            <div className="flex flex-col gap-4 items-end justify-start">
+            <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-4 lg:items-end">
               <h2 className={`${HEADING} font-normal`}>
                 <span className="font-bold">{`Trust, `}</span> Connection &{" "}
                 <br />
@@ -473,10 +469,10 @@ export default function Welcome() {
                 collaborate with a wide range of stakeholders—including
                 government bodies, academic institutions, local businesses, and
                 grassroots entrepreneurs. Rather than imposing top-down design
-                decisions, we practice the art of "slow building." By
-                maintaining a steady presence within the communities we serve,
-                we allow projects to develop gradually and organically over
-                time.
+                decisions, we practice the art of &ldquo;slow building.&rdquo;
+                By maintaining a steady presence within the communities we
+                serve, we allow projects to develop gradually and organically
+                over time.
               </p>
             </div>
           </div>

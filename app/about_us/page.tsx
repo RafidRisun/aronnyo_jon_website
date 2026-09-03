@@ -17,16 +17,16 @@ export default function AboutUs() {
 
   return (
     <div
-      className="flex flex-col py-32 w-full bg-white gap-15 text-[#104649] text-justify"
+      className="flex min-h-svh w-full flex-col gap-12 bg-white px-5 pb-20 pt-32 text-left text-[#104649] sm:px-10 lg:gap-15 lg:px-[clamp(3rem,6vw,6rem)] lg:text-justify"
       onClick={clickedAnywhere}
     >
-      <div className="flex items-start justify-between gap-5 flex-1 p-5">
-        <div className="flex-1">
-          <span className="flex-1 font-light text-4xl px-15">About Us</span>
+      <div className="mx-auto grid w-full max-w-[84rem] grid-cols-1 items-start gap-8 lg:grid-cols-4 lg:gap-5">
+        <div>
+          <h1 className="text-4xl font-light">About Us</h1>
         </div>
 
-        <div className="flex-1"></div>
-        <div className="flex-1">
+        <div className="hidden lg:block" />
+        <div>
           <p>
             WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -37,7 +37,7 @@ export default function AboutUs() {
             officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <div className="flex-1">
+        <div>
           <p>
             WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -49,8 +49,8 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-      <div className="flex gap-5 items-start justify-between flex-1 p-5">
-        <div className="flex-1 h-120 relative">
+      <div className="mx-auto grid w-full max-w-[84rem] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="relative h-72 sm:col-span-2 sm:h-96 lg:h-120">
           <Image
             src="/images/aboutus/team.jpg"
             alt="project 1"
@@ -58,7 +58,7 @@ export default function AboutUs() {
             className={`object-cover`}
           />
         </div>
-        <div className="w-1/4 h-120 relative">
+        <div className="relative h-72 sm:h-96 lg:h-120">
           <Image
             src="/images/aboutus/office2.jpg"
             alt="project 1"
@@ -66,7 +66,7 @@ export default function AboutUs() {
             className={`object-cover`}
           />
         </div>
-        <div className="w-1/4 h-120 relative">
+        <div className="relative h-72 sm:h-96 lg:h-120">
           <Image
             src="/images/aboutus/office3.jpg"
             alt="project 1"
@@ -76,15 +76,15 @@ export default function AboutUs() {
         </div>
       </div>
       {/* Team Members */}
-      <div className="flex flex-col items-center gap-15 p-5">
-        <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
+      <div className="mx-auto flex w-full max-w-[84rem] flex-col items-center gap-10">
+        <div className="grid w-full grid-cols-1 gap-8 font-light text-[#104649] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {teamMembers.map((member) => (
             <button
               key={member.id}
               onClick={() => setPersonModalOpen(true)}
-              className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+              className="flex w-full cursor-pointer flex-col justify-between transition-transform duration-300 ease-in-out hover:scale-[1.02]"
             >
-              <div className="relative w-75 h-75">
+              <div className="relative aspect-square w-full">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -98,12 +98,12 @@ export default function AboutUs() {
         </div>
       </div>
       <Divider />
-      <div className="flex flex-col gap-15 w-full p-5">
-        <div className="flex items-start justify-between w-full">
-          <div className="flex-1">
-            <span className="flex-1 font-light text-4xl px-15">Artisans</span>
+      <div className="mx-auto flex w-full max-w-[84rem] flex-col gap-12">
+        <div className="grid w-full grid-cols-1 items-start gap-8 lg:grid-cols-2">
+          <div>
+            <h2 className="text-4xl font-light">Artisans</h2>
           </div>
-          <div className="flex-1">
+          <div>
             <p>
               WHO WE ARE Lorem ipsum dolor sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -115,7 +115,7 @@ export default function AboutUs() {
             </p>
           </div>
         </div>
-        <div className="w-full h-140 relative">
+        <div className="relative h-72 w-full sm:h-112 lg:h-140">
           <Image
             src="/images/aboutus/artisans.jpg"
             alt="project 1"
@@ -124,15 +124,15 @@ export default function AboutUs() {
           />
         </div>
         {/* Team Members */}
-        <div className="flex flex-col items-center gap-15 p-5">
-          <div className="flex flex-wrap items-center justify-center text-[#104649] font-light w-full">
+        <div className="flex w-full flex-col items-center gap-10">
+          <div className="grid w-full grid-cols-1 gap-8 font-light text-[#104649] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {teamMembers.map((member) => (
               <button
                 key={member.id}
                 onClick={() => setPersonModalOpen(true)}
-                className="m-4 flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+                className="flex w-full cursor-pointer flex-col justify-between transition-transform duration-300 ease-in-out hover:scale-[1.02]"
               >
-                <div className="relative w-75 h-75">
+                <div className="relative aspect-square w-full">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -148,20 +148,22 @@ export default function AboutUs() {
       </div>
       {personModalOpen && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-white/40 flex items-center justify-center z-50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/40 p-4 sm:p-8"
           onClick={() => setPersonModalOpen(false)}
         >
           <div
-            className="w-3/5 h-4/5 flex bg-white relative"
+            className="relative flex max-h-[90svh] w-full max-w-5xl flex-col overflow-hidden bg-white shadow-2xl md:h-4/5 md:flex-row"
             onClick={(event) => event.stopPropagation()}
           >
             <button
-              className="absolute top-5 right-5 text-2xl hover:scale-130 transition-transform duration-300 ease-in-out cursor-pointer"
+              type="button"
+              aria-label="Close team member details"
+              className="absolute top-4 right-4 z-10 cursor-pointer text-2xl transition-transform duration-300 ease-in-out hover:scale-110 sm:top-5 sm:right-5"
               onClick={() => setPersonModalOpen(false)}
             >
               <IoMdClose />
             </button>
-            <div className="w-1/3 h-full relative">
+            <div className="relative h-56 w-full shrink-0 md:h-full md:w-1/3">
               <Image
                 src="/images/aboutus/cat.jpg"
                 alt="project 1"
@@ -169,9 +171,9 @@ export default function AboutUs() {
                 className={`object-cover`}
               />
             </div>
-            <div className="w-2/3 h-full flex flex-col justify-between p-15">
+            <div className="flex min-h-0 w-full flex-1 flex-col justify-between gap-10 overflow-y-auto p-6 sm:p-10 md:w-2/3 lg:p-15">
               <div className="flex flex-col gap-10">
-                <h3 className="text-5xl font-thin">Chengis Khan</h3>
+                <h3 className="text-4xl font-thin sm:text-5xl">Chengis Khan</h3>
                 <p>
                   Chengis Khan is a passionate musician with over 10 years of
                   experience in the industry. He has performed in various venues
