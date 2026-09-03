@@ -33,14 +33,14 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   const closeMenu = () => dispatch(setHamburgerClicked(false));
-  const navbarColor = isOverNonWhite ? "text-white" : "text-[#104649]";
+  const navbarColor = isOverNonWhite ? "text-white" : "text-dark-teal";
 
   const updateNavbarColor = useCallback(() => {
     // Measure which marked section is physically behind the navbar's center.
-    const sampleY = (headerRef.current?.getBoundingClientRect().height ?? 96) / 2;
-    const sections = document.querySelectorAll<HTMLElement>(
-      "[data-navbar-tone]",
-    );
+    const sampleY =
+      (headerRef.current?.getBoundingClientRect().height ?? 96) / 2;
+    const sections =
+      document.querySelectorAll<HTMLElement>("[data-navbar-tone]");
     const activeSection = Array.from(sections).find((section) => {
       const bounds = section.getBoundingClientRect();
       return bounds.top <= sampleY && bounds.bottom > sampleY;
@@ -79,7 +79,9 @@ export default function Navbar() {
 
         <button
           type="button"
-          aria-label={hamburgerClicked ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            hamburgerClicked ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-controls="primary-navigation"
           aria-expanded={hamburgerClicked}
           onClick={(event) => {
