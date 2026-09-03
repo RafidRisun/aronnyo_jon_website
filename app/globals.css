@@ -8,7 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-lato);
+  /* Segoe UI Variable exposes the full installed weight range when available. */
+  --font-sans: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system,
+    BlinkMacSystemFont, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
