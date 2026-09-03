@@ -207,7 +207,7 @@ export default function Welcome() {
         <div
           className={`z-20 flex flex-col items-start justify-start gap-12 lg:flex-row lg:gap-16 ${SECTION_CONTENT_WIDTH}`}
         >
-          <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-2 text-left lg:items-end lg:text-end">
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-2 text-left lg:items-end lg:text-end text-dark-teal">
             <h2 className={`${HEADING} font-normal`}>
               <span className="font-bold">{`Collective `}</span> Efforts <br />{" "}
               for
@@ -230,7 +230,7 @@ export default function Welcome() {
           </div>
           <div className="flex min-w-0 flex-1 flex-col items-start justify-start gap-2">
             <div className="hidden h-38 lg:block" />
-            <div className="flex flex-col gap-2 items-start justify-start text-dark-teal">
+            <div className="flex flex-col gap-2 items-start justify-start">
               <h2 className={`${HEADING} font-normal`}>
                 Environmental<span className="font-bold">{` Health`}</span>{" "}
                 <br /> Renewable<span className="font-bold">{` Energy`}</span>{" "}
@@ -269,7 +269,7 @@ export default function Welcome() {
         <div
           className={`z-20 flex flex-col gap-2 items-start justify-start ${SECTION_CONTENT_WIDTH}`}
         >
-          <h2 className={`${HEADING}`}>
+          <h2 className={`${HEADING} text-white`}>
             Visualization <br />
             <span className="font-bold">{`& Storytelling`}</span>
           </h2>
