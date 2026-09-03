@@ -1,24 +1,13 @@
-import Lenis from "lenis";
+import type { LenisOptions } from "lenis";
 
-export function smoothScroll(): any {
-    const lenis = new Lenis({
-        lerp: 0.08,
-        wheelMultiplier: 0.7,
-        touchMultiplier: 0.7,
-        smoothWheel: true,
-    });
-
-    let animationFrameId = 0;
-
-    const raf = (time: number) => {
-        lenis.raf(time);
-        animationFrameId = window.requestAnimationFrame(raf);
-    };
-
-    animationFrameId = window.requestAnimationFrame(raf);
-
-    return () => {
-        window.cancelAnimationFrame(animationFrameId);
-        lenis.destroy();
-    };
+// Edit these values to make the global smooth scroll softer or more responsive.
+export const smoothScrollOptions: LenisOptions = {
+  autoRaf: true,
+  lerp: 0.075,
+  wheelMultiplier: 0.85,
+  touchMultiplier: 1,
+  smoothWheel: true,
+  syncTouch: true,
+  anchors: true,
+  stopInertiaOnNavigate: true,
 };
