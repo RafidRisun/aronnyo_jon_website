@@ -12,7 +12,7 @@ export default function Footer() {
       {/* Keep both marks in this grid so they scale evenly on small screens. */}
       <div>
         <div
-          className={`grid flex-1 grid-cols-2 items-end justify-items-center gap-5 py-8 sm:gap-12 lg:gap-24 ${FOOTER_CONTENT_WIDTH}`}
+          className={`grid flex-1 grid-cols-2 items-center sm:items-end justify-center gap-5 py-8 sm:gap-12 lg:gap-24 ${FOOTER_CONTENT_WIDTH}`}
         >
           <div className="flex min-w-0 flex-col items-center justify-center">
             <Image
