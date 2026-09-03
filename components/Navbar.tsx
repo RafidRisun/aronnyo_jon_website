@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLenis } from "lenis/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,17 +48,34 @@ export default function Navbar() {
     setIsOverNonWhite(activeSection?.dataset.navbarTone === "non-white");
   }, []);
 
-  // Lenis calls this on every smooth-scroll update.
-  useLenis(updateNavbarColor);
-
   useEffect(() => {
+    let animationFrame = 0;
+
+    // Native scroll events still fire while Lenis animates. Scheduling the
+    // measurement here avoids depending on Lenis being ready during hydration.
+    const scheduleNavbarUpdate = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(updateNavbarColor);
+    };
+
     updateNavbarColor();
-    window.addEventListener("scroll", updateNavbarColor, { passive: true });
-    window.addEventListener("resize", updateNavbarColor);
+    scheduleNavbarUpdate();
+
+    window.addEventListener("scroll", scheduleNavbarUpdate, { passive: true });
+    window.addEventListener("resize", scheduleNavbarUpdate);
+    window.addEventListener("load", scheduleNavbarUpdate);
+    window.addEventListener("pageshow", scheduleNavbarUpdate);
+
+    const headerObserver = new ResizeObserver(scheduleNavbarUpdate);
+    if (headerRef.current) headerObserver.observe(headerRef.current);
 
     return () => {
-      window.removeEventListener("scroll", updateNavbarColor);
-      window.removeEventListener("resize", updateNavbarColor);
+      window.cancelAnimationFrame(animationFrame);
+      headerObserver.disconnect();
+      window.removeEventListener("scroll", scheduleNavbarUpdate);
+      window.removeEventListener("resize", scheduleNavbarUpdate);
+      window.removeEventListener("load", scheduleNavbarUpdate);
+      window.removeEventListener("pageshow", scheduleNavbarUpdate);
     };
   }, [pathname, updateNavbarColor]);
 
@@ -69,13 +85,13 @@ export default function Navbar() {
           White sections use the brand's dark teal instead. */}
       <header
         ref={headerRef}
-        className={`fixed inset-x-0 top-0 z-50 flex w-full items-center justify-between px-5 py-5 transition-colors duration-200 sm:px-10 sm:py-8 ${navbarColor}`}
+        className={`fixed inset-x-0 top-0 z-[100] flex w-full transform-gpu items-center justify-between bg-transparent px-5 py-5 opacity-100 transition-colors duration-200 sm:px-10 sm:py-8 ${navbarColor}`}
         onClick={closeMenu}
       >
-        <a href="/" className="flex items-center gap-1 sm:gap-2">
+        <Link href="/" className="flex items-center gap-1 sm:gap-2">
           <span className="text-2xl font-extrabold sm:text-4xl">Local</span>
           <span className="text-2xl font-light sm:text-4xl">Orchestra</span>
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -102,7 +118,7 @@ export default function Navbar() {
       <nav
         id="primary-navigation"
         aria-label="Primary navigation"
-        className={`fixed top-20 right-5 z-50 flex flex-col items-end gap-5 text-xl font-light transition-all duration-300 ease-out sm:top-28 sm:right-10 sm:gap-7 sm:text-2xl ${navbarColor} ${
+        className={`fixed top-20 right-5 z-[100] flex transform-gpu flex-col items-end gap-5 text-xl font-light transition-all duration-300 ease-out sm:top-28 sm:right-10 sm:gap-7 sm:text-2xl ${navbarColor} ${
           hamburgerClicked
             ? "pointer-events-auto translate-x-0 opacity-100"
             : "pointer-events-none translate-x-[calc(100%+3rem)] opacity-0"
