@@ -111,7 +111,11 @@ export default function Navbar() {
         {navigationLinks.map((link) => (
           <Link
             key={link.href}
-            href={link.href}
+            href={
+              link.href === "/contact" && pathname === "/"
+                ? "#footer"
+                : link.href
+            }
             onClick={closeMenu}
             className="underline-offset-4 hover:underline focus-visible:underline focus-visible:outline-none"
           >

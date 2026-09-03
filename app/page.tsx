@@ -1,7 +1,9 @@
 "use client";
 
+import { setHamburgerClicked } from "@/redux/hamburgerClickedSlice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const TEMPLATE_BACKGROUND = "/images/projects/1.jpg";
 
@@ -33,8 +35,16 @@ export default function Welcome() {
 
   const showBrochure = pageReady && brochureReady;
 
+  const dispatch = useDispatch();
+  function clickedAnywhere() {
+    dispatch(setHamburgerClicked(false));
+  }
+
   return (
-    <main className="w-full overflow-x-clip bg-white text-dark-teal">
+    <main
+      className="w-full overflow-x-clip bg-white text-dark-teal"
+      onClick={clickedAnywhere}
+    >
       {/* INTRO SECTION
           Change BROCHURE_IMAGE above to replace the opening artwork. */}
       <section
@@ -513,77 +523,6 @@ export default function Welcome() {
             side-by-side with residents and artisans, we ensure that the
             creation of the building is a culturally respectful, dignifying, and
             empowering experience.
-          </p>
-        </div>
-      </section>
-
-      {/* footer */}
-      <section
-        className={`${FULL_SCREEN_SECTION} items-center justify-center text-white`}
-        data-navbar-tone="non-white"
-      >
-        {/* <Image
-          src="/images/Brochure/12.jpg"
-          alt="Architecture project interior"
-          fill
-          sizes="100vw"
-          className="z-0 object-cover object-center"
-        /> */}
-        <div className="z-0 absolute inset-0 bg-[#829DA4]" />
-        <div
-          className={`z-20 flex items-end justify-center gap-38 ${SECTION_CONTENT_WIDTH}`}
-        >
-          <div className="flex flex-col gap-2 items-center justify-center">
-            <Image
-              src="/images/Brochure/Detour.jpg"
-              alt="Architecture project interior"
-              width={300}
-              height={300}
-              className="object-contain object-center"
-            />
-            <p
-              className={`${DESCRIPTION} text-center font-extralight text-black`}
-            >
-              listen | design | build
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-2 items-center justify-center">
-            <Image
-              src="/images/Brochure/aronnyojon.jpg"
-              alt="Architecture project interior"
-              width={300}
-              height={300}
-              className="object-contain object-center"
-            />
-            <p
-              className={`${DESCRIPTION} text-center font-extralight text-black`}
-            >
-              for ethical construction
-            </p>
-          </div>
-        </div>
-        <div
-          className={`absolute flex items-end justify-between bottom-10 text-center text-white ${SECTION_CONTENT_WIDTH}`}
-        >
-          <p className={`${DESCRIPTION} text-center font-extralight`}>
-            © 2026 Aronnyo Jon. All rights reserved.
-          </p>
-          <p className={`${DESCRIPTION} text-end font-extralight`}>
-            <span className="font-bold">E-mail:</span>{" "}
-            <a
-              href="mailto:local.orchestra@gmail.com"
-              className="text-white hover:underline"
-            >
-              local.orchestra@gmail.com
-            </a>
-            <br />
-            <a
-              href="mailto:aronnyojon@gmail.com"
-              className="text-white hover:underline"
-            >
-              aronnyojon@gmail.com
-            </a>
           </p>
         </div>
       </section>
