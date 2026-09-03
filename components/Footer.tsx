@@ -7,7 +7,7 @@ export default function Footer() {
     <footer
       id="footer"
       data-navbar-tone="non-white"
-      className="relative flex min-h-svh w-full flex-col items-start sm:items-center justify-center overflow-hidden bg-[#829DA4] px-6 pb-8 pt-28 text-white sm:px-10 sm:pb-10 sm:pt-32 lg:px-[clamp(3rem,6vw,6rem)]"
+      className="relative flex min-h-svh w-full flex-col items-center sm:justify-center justify-start overflow-hidden bg-[#829DA4] px-6 pb-8 pt-28 text-white sm:px-10 sm:pb-10 sm:pt-32 lg:px-[clamp(3rem,6vw,6rem)]"
     >
       {/* Keep both marks in this grid so they scale evenly on small screens. */}
       <div>
