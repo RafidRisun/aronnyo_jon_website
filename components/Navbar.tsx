@@ -17,9 +17,9 @@ type NavigationState = {
 };
 
 const navigationLinks = [
-  { label: "Home", href: "#intro" },
+  { label: "Home", href: "/#intro" },
   { label: "Works", href: "/works" },
-  { label: "Contact", href: "#footer" },
+  { label: "Contact", href: "/#footer" },
 ];
 
 export default function Navbar() {
@@ -88,7 +88,7 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-[100] flex w-full transform-gpu items-center justify-between bg-transparent px-5 py-5 opacity-100 transition-colors duration-200 sm:px-10 sm:py-8 ${navbarColor}`}
         onClick={closeMenu}
       >
-        <Link href="#intro" className="flex items-center gap-1 sm:gap-2">
+        <Link href="/#intro" className="flex items-center gap-1 sm:gap-2">
           <span className="text-2xl font-extrabold sm:text-4xl">Local</span>
           <span className="text-2xl font-light sm:text-4xl">Orchestra</span>
         </Link>
