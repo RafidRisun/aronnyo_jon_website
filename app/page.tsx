@@ -51,6 +51,7 @@ export default function Welcome() {
         }`}
         aria-label="Intro"
         data-navbar-tone="white"
+        id="intro"
       >
         <div className={`relative h-[65svh] w-full ${SECTION_CONTENT_WIDTH}`}>
           <Image
