@@ -17,7 +17,7 @@ const FLEX_SECTION =
 const SECTION_CONTENT_WIDTH = "w-full max-w-[84rem]";
 
 const HEADING =
-  "max-w-[15ch] text-[clamp(1.5rem,4vw,5rem)] leading-[1.1] tracking-[-0.045em]";
+  "max-w-[15ch] text-[clamp(2rem,4vw,5rem)] leading-[1.1] tracking-[-0.045em]";
 const DESCRIPTION =
   "mt-8 max-w-2xl text-[clamp(1rem,1.5vw,1.3rem)] leading-[1.65]";
 
