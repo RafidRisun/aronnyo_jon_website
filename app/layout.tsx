@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   title: "Local Orchestra | Aronnyojon",
   description:
     "Local Orchestra brings communities together through sustainable architecture, ethical construction, and ecological practices rooted in local culture and knowledge.",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   openGraph: {
     title: "Local Orchestra | Aronnyojon",
     description:
